@@ -3,6 +3,12 @@
   --bg-start: #f0fdfa;
   --bg-end: #ccfbf1;
   --site-font: 'Poppins', sans-serif;
+  --ink-900: #102a2e;
+  --ink-700: #2a4b50;
+  --ink-500: #4b6b70;
+  --surface-soft: #ffffffd4;
+  --surface-strong: #ffffffee;
+  --line-soft: #d0e5e4;
 }
 
 * {
@@ -13,8 +19,11 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--site-font);
-  background: linear-gradient(130deg, var(--bg-start), var(--bg-end));
-  color: #12343b;
+  background:
+    radial-gradient(circle at 15% 15%, #ffffffb0 0%, transparent 24%),
+    radial-gradient(circle at 88% 8%, #d2f5ee 0%, transparent 20%),
+    linear-gradient(130deg, var(--bg-start), var(--bg-end));
+  color: var(--ink-900);
 }
 
 .site-header {
@@ -67,17 +76,18 @@ button:hover,
 }
 
 .container {
-  width: min(980px, 92vw);
+  width: min(1180px, 92vw);
   margin: 2rem auto;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.4rem;
 }
 
 .hero {
-  background: #ffffffc7;
+  background: linear-gradient(155deg, var(--surface-strong), #f6fffd);
   border: 1px solid #ffffff;
-  border-radius: 1rem;
-  padding: 1.25rem;
+  border-radius: 1.15rem;
+  padding: 1.4rem;
+  box-shadow: 0 12px 28px #0f766e1a;
 }
 
 .hero.small {
@@ -95,18 +105,150 @@ button:hover,
 
 .hero h2 {
   margin: 0.35rem 0 0.5rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
-.card-grid {
+.member-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: linear-gradient(180deg, var(--surface-strong), var(--surface-soft));
+  border: 1px solid var(--line-soft);
+  border-radius: 1.1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 22px #0f766e14;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.member-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px #0f766e22;
+}
+
+.member-head {
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.member-name {
+  margin: 0;
+  color: var(--ink-900);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.member-role {
+  margin: 0.35rem 0 0;
+  color: var(--ink-500);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.meta-grid div {
+  background: #f5fbfa;
+  border: 1px solid #d9ecea;
+  border-radius: 0.7rem;
+  padding: 0.5rem 0.6rem;
+}
+
+.meta-grid dt {
+  margin: 0;
+  color: var(--ink-500);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.meta-grid dd {
+  margin: 0.2rem 0 0;
+  color: var(--ink-900);
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.36rem;
+}
+
+.contact-list li {
+  padding: 0.34rem 0.5rem;
+  border-radius: 0.55rem;
+  background: #f9ffff;
+  border: 1px dashed #cfe4e2;
+  color: var(--ink-700);
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.contact-list li span {
+  font-weight: 700;
+  color: var(--ink-900);
+  margin-right: 0.3rem;
+}
+
+.member-bio,
+.member-message,
+.interest-tags {
+  margin: 0;
+  color: var(--ink-700);
+  line-height: 1.45;
+}
+
+.member-bio {
+  font-weight: 600;
+  color: #15484e;
+}
+
+.member-message strong,
+.interest-title {
+  color: var(--ink-900);
+}
+
+.interest-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.card-action {
+  align-self: flex-start;
+  margin-top: auto;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.6rem;
+  padding: 0.42rem 0.72rem;
+  background: #ffffff;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.card-action:hover {
+  background: var(--accent-color);
+  color: #ffffff;
 }
 
 .card,
 .panel,
 .status-box {
-  background: #ffffffd6;
+  background: var(--surface-soft);
   border: 1px solid #ffffff;
   border-radius: 1rem;
   padding: 1rem;
@@ -150,5 +292,9 @@ button:hover,
     width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
   }
 }
