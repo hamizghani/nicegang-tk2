@@ -1,0 +1,154 @@
+:root {
+  --accent-color: #0f766e;
+  --bg-start: #f0fdfa;
+  --bg-end: #ccfbf1;
+  --site-font: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--site-font);
+  background: linear-gradient(130deg, var(--bg-start), var(--bg-end));
+  color: #12343b;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #ffffffd9;
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid #ffffff;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+a,
+.button-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+button,
+.button-link {
+  border: 1px solid var(--accent-color);
+  padding: 0.45rem 0.8rem;
+  border-radius: 0.5rem;
+  background: white;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:hover,
+.button-link:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+.inline-form {
+  margin: 0;
+}
+
+.container {
+  width: min(980px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero {
+  background: #ffffffc7;
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.hero.small {
+  margin-bottom: 0;
+}
+
+.tag {
+  margin: 0;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero h2 {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.card,
+.panel,
+.status-box {
+  background: #ffffffd6;
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.status-box p,
+.panel p {
+  margin: 0.4rem 0;
+}
+
+.ok {
+  color: #166534;
+  font-weight: 700;
+}
+
+.warn {
+  color: #991b1b;
+  font-weight: 700;
+}
+
+.theme-form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.theme-form input,
+.theme-form select {
+  width: 100%;
+  border: 1px solid #bcd4d9;
+  border-radius: 0.45rem;
+  padding: 0.55rem 0.65rem;
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    gap: 0.8rem;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

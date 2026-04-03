@@ -1,0 +1,41 @@
+<%- include("partials/header", { title, user, theme, csrfToken }) %>
+
+<section class="hero small">
+  <p class="tag">Authorization Area</p>
+  <h2>Editor Tampilan Website</h2>
+  <p>Hanya email anggota kelompok yang ada di AUTHORIZED_EMAILS yang bisa mengakses halaman ini.</p>
+</section>
+
+<section class="panel">
+  <% if (error) { %>
+    <p class="warn"><%= error %></p>
+  <% } %>
+
+  <% if (success) { %>
+    <p class="ok"><%= success %></p>
+  <% } %>
+
+  <form method="post" action="/theme/edit" class="theme-form">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+    <label for="accentColor">Accent Color (hex)</label>
+    <input id="accentColor" name="accentColor" type="text" value="<%= theme.accentColor %>" required />
+
+    <label for="backgroundStart">Background Start (hex)</label>
+    <input id="backgroundStart" name="backgroundStart" type="text" value="<%= theme.backgroundStart %>" required />
+
+    <label for="backgroundEnd">Background End (hex)</label>
+    <input id="backgroundEnd" name="backgroundEnd" type="text" value="<%= theme.backgroundEnd %>" required />
+
+    <label for="fontFamily">Font Family</label>
+    <select id="fontFamily" name="fontFamily" required>
+      <% allowedFonts.forEach((font) => { %>
+        <option value="<%= font %>" <%= font === theme.fontFamily ? "selected" : "" %>><%= font %></option>
+      <% }) %>
+    </select>
+
+    <button type="submit">Simpan Perubahan</button>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

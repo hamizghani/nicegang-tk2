@@ -1,0 +1,9 @@
+<%- include("partials/header", { title, user, theme: { accentColor: '#0f766e', backgroundStart: '#f0fdfa', backgroundEnd: '#ccfbf1', fontFamily: 'Poppins' }, csrfToken }) %>
+
+<section class="panel">
+  <h2><%= title %></h2>
+  <p class="warn"><%= message %></p>
+  <p><a href="/">Kembali ke beranda</a></p>
+</section>
+
+<%- include("partials/footer") %>

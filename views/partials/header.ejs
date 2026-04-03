@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&family=Nunito+Sans:wght@400;700&family=Poppins:wght@400;600;700&family=Source+Sans+3:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+  </head>
+  <body
+    style="--accent-color: <%= theme.accentColor %>; --bg-start: <%= theme.backgroundStart %>; --bg-end: <%= theme.backgroundEnd %>; --site-font: '<%= theme.fontFamily %>', sans-serif;"
+  >
+    <header class="site-header">
+      <h1>Kelompok NiceGang</h1>
+      <nav>
+        <a href="/">Beranda</a>
+        <% if (user) { %>
+          <% if (user.canEditTheme) { %>
+            <a href="/theme/edit">Ubah Tampilan</a>
+          <% } %>
+          <form action="/logout" method="post" class="inline-form">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <button type="submit">Logout</button>
+          </form>
+        <% } else { %>
+          <a class="button-link" href="/auth/google">Login dengan Google</a>
+        <% } %>
+      </nav>
+    </header>
+    <main class="container">

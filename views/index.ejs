@@ -1,0 +1,79 @@
+<%- include("partials/header", { title, user, theme, csrfToken }) %>
+
+<section class="hero">
+  <p class="tag">Pengantar Keamanan Perangkat Lunak</p>
+  <h2>Website Biodata Kelompok</h2>
+  <p>
+    Halaman ini bisa diakses tanpa login. Login Google digunakan untuk autentikasi,
+    lalu otorisasi berbasis email menentukan siapa yang boleh mengubah tampilan.
+  </p>
+</section>
+
+<section class="card-grid">
+  <article class="card">
+    <h3>Muhammad Hamiz Ghani Ayusha</h3>
+    <p><strong>Tanggal Lahir:</strong> 17 Juli 2006</p>
+    <p><strong>Jurusan:</strong> Ilmu Komputer Reguler</p>
+    <p><strong>IG:</strong> @hamizghaniiii</p>
+    <p><strong>LinkedIn:</strong> muhammad-hamiz-ghani-ayusha-9a061928b</p>
+    <p><strong>X/Twitter:</strong> @demorghan</p>
+    <p><strong>Description:</strong> shoot for the stars</p>
+    <p><strong>Message for CSUI'24:</strong> halo csui 2024! solid selalu serta semangat ya kuliahnya, jangan lupa untuk have fun dan semoga apa yang dicita citakan bisa tercapai, Aaamiinn.</p>
+    <p><strong>Interests:</strong> Web Development, Data Science and Analytics, Artificial Intelligence, Machine Learning, masak, makan</p>
+    <p><a href="https://cosmic.csui.dev/fams/muhammad-hamiz-ghani-ayusha" target="_blank" rel="noopener noreferrer">Lihat profil Cosmic</a></p>
+  </article>
+
+  <article class="card">
+    <h3>Fidel Akilah</h3>
+    <p><strong>Tanggal Lahir:</strong> 24 Agustus 2006</p>
+    <p><strong>Jurusan:</strong> Ilmu Komputer Reguler</p>
+    <p><strong>IG:</strong> @fidelakilah</p>
+    <p><strong>LinkedIn:</strong> fidel-akilah</p>
+    <p><strong>Description:</strong> Bagian dari Keluarga Besar Padaringan</p>
+    <p><strong>Message for CSUI'24:</strong> Sehat, Sentosa, Jaya Abadi</p>
+    <p><strong>Interests:</strong> Data Science and Analytics, Artificial Intelligence, Machine Learning, Internet of Things (IoT), Robotics</p>
+    <p><a href="https://cosmic.csui.dev/fams/fidel-akilah" target="_blank" rel="noopener noreferrer">Lihat profil Cosmic</a></p>
+  </article>
+
+  <article class="card">
+    <h3>I Gusti Ngurah Agung Airlangga Putra</h3>
+    <p><strong>Tanggal Lahir:</strong> 16 September 2006</p>
+    <p><strong>Jurusan:</strong> Ilmu Komputer Reguler</p>
+    <p><strong>IG:</strong> @gung_angga16</p>
+    <p><strong>LinkedIn:</strong> i-gusti-ngurah-agung-airlangga-putra</p>
+    <p><strong>Description:</strong> Hi guys! Salken gua Gung dari IK 24. Keterima lewat jalur SNBP, I was rank 1/286 di SMA. Sekarang di Fasilkom, gua super tertarik untuk belajar Data Science, AI, Computer Vision, and Machine Learning.</p>
+    <p><strong>Message for CSUI'24:</strong> I hope we can all get along very well and be frien ds. Semoga kita sama-sama belajar, berkembang, dan mencapai cita-cita masing-masing. Semangat guys, we got this!</p>
+    <p><strong>Interests:</strong> UI/UX Design, Web Development, Mobile Development, Game Development, Data Science and Analytics, Artificial Intelligence, Machine Learning, Competitive Programming</p>
+    <p><a href="https://cosmic.csui.dev/fams/i-gusti-ngurah-agung-airlangga-putra" target="_blank" rel="noopener noreferrer">Lihat profil Cosmic</a></p>
+  </article>
+
+  <article class="card">
+    <h3>Alderryl Juan Fauza (Fauza)</h3>
+    <p><strong>Tanggal Lahir:</strong> 30 Oktober 2006</p>
+    <p><strong>Jurusan:</strong> Ilmu Komputer Reguler</p>
+    <p><strong>IG:</strong> @alderrylfauza</p>
+    <p><strong>LinkedIn:</strong> alderryl-fauza</p>
+    <p><strong>Line:</strong> alderrlyl</p>
+    <p><strong>X/Twitter:</strong> priv</p>
+    <p><strong>Description:</strong> spend the money and travel 555</p>
+    <p><strong>Message for CSUI'24:</strong> solid</p>
+    <p><strong>Interests:</strong> Cyber Security, Artificial Intelligence, Internet of Things (IoT), Getting Bread</p>
+  </article>
+</section>
+
+<section class="status-box">
+  <% if (user) { %>
+    <p>Login sebagai: <strong><%= user.displayName %></strong> (<%= user.email %>)</p>
+    <% if (canEditTheme) { %>
+      <p class="ok">Akun ini memiliki izin mengubah tampilan website.</p>
+    <% } else { %>
+      <p class="warn">Akun ini hanya dapat melihat website, tanpa akses edit tampilan.</p>
+    <% } %>
+  <% } else { %>
+    <p>
+      Anda belum login. Silakan login menggunakan Google untuk melihat status hak akses.
+    </p>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>
