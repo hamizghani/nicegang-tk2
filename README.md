@@ -1,6 +1,6 @@
 # Tugas 2 - Authentication & Authorization
 
-Project ini dibuat untuk memenuhi kebutuhan tugas PDF:
+Project ini dibuat untuk memenuhi kebutuhan tugas:
 - Website biodata kelompok bisa diakses tanpa login
 - Login menggunakan Google OAuth 2.0
 - Hanya akun anggota kelompok tertentu yang boleh mengubah tampilan (warna/font)
